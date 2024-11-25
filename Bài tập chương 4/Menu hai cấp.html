@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Hai Cấp</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        // Ẩn tất cả các menu nhóm (menu_nhom) khi trang được tải
+        $(".menu_nhom").hide();
+
+        // Khi người dùng click vào menu thể loại (menu_theloai), sẽ toggle (hiển thị/ẩn) menu nhóm tương ứng
+        $(".menu_theloai").click(function () {
+            // Dùng slideToggle() để tạo hiệu ứng ẩn/hiện với menu nhóm
+            $(this).next(".menu_nhom").slideToggle();
+        });
+    });
+    </script>
+    <style>
+        /* Đặt font và các thiết lập chung cho body */
+        body {
+            font-family: Arial, sans-serif;  /* Chọn font chữ đơn giản */
+            margin: 0; /* Loại bỏ margin mặc định của trang */
+            padding: 20px; /* Thêm khoảng đệm xung quanh */
+            background-color: #ffffff; /* Màu nền trắng */
+            color: #000000; /* Màu chữ đen */
+        }
+
+        /* Style cho menu thể loại (menu_theloai) */
+        .menu_theloai {
+            background-color: #333333; /* Màu nền đen cho menu */
+            color: white; /* Màu chữ trắng */
+            padding: 10px;
+            font-size: 1.2em;
+            cursor: pointer; /* Thêm hiệu ứng con trỏ khi di chuột */
+            margin-bottom: 5px; /* Khoảng cách giữa các menu thể loại */
+        
+        }
+
+        /* Khi hover (di chuột) vào menu thể loại, thay đổi màu nền */
+        .menu_theloai:hover {
+            background-color: #555555; /* Màu nền xám khi hover */
+        }
+
+        /* Style cho menu nhóm (menu_nhom) */
+        .menu_nhom {
+            margin-left: 20px; /* Lùi vào bên trái để tạo độ sâu */
+        }
+
+        /* Style cho các liên kết trong menu nhóm */
+        .menu_nhom a {
+            display: block; /* Mỗi liên kết chiếm một dòng */
+            color: #333333; /* Màu chữ đen cho các liên kết */
+            text-decoration: none; /* Loại bỏ gạch chân mặc định */
+            padding: 8px 15px; /* Thêm khoảng đệm cho liên kết */
+            background-color: #f4f4f4; /* Màu nền sáng cho các liên kết */
+            margin-bottom: 5px; /* Khoảng cách giữa các liên kết */
+        }
+
+        /* Khi hover vào các liên kết, thay đổi màu nền */
+        .menu_nhom a:hover {
+            background-color: #333333; /* Màu nền xám khi hover */
+            color: white; /* Màu chữ trắng khi hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu thể loại "Đời sống" -->
+    <div class="menu_theloai">Đời sống</div>
+    <div class="menu_nhom">
+        <a href="?idTL=15">Hoa hậu</a>
+        <a href="?idTL=16">Nghệ sĩ</a>
+        <a href="?idTL=17">Mỹ thuật</a>
+    </div>
+
+    <!-- Menu thể loại "Giải trí" -->
+    <div class="menu_theloai">Giải trí</div>
+    <div class="menu_nhom">
+        <a href="?idTL=18">Âm nhạc</a>
+        <a href="?idTL=19">Thời trang</a>
+        <a href="?idTL=20">Điện ảnh</a>
+    </div>
+
+    <!-- Menu thể loại "Thể thao" -->
+    <div class="menu_theloai">Thể thao</div>
+    <div class="menu_nhom">
+        <a href="?idTL=21">Bóng đá</a>
+        <a href="?idTL=22">Tennis</a>
+        <a href="?idTL=23">Các môn khác</a>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover</title>
+    <style>
+        /* Định dạng cho danh sách */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Định dạng cho mỗi mục trong danh sách */
+        li {
+            padding: 10px;
+        }
+
+        /* Định dạng cho liên kết */
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 16px;
+            transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng mượt mà */
+        }
+
+        /* Hiệu ứng hover */
+        li a:hover {
+            -webkit-transform: rotate(-10deg) scale(2);
+            transform: rotate(-10deg) scale(2);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Danh sách với các liên kết -->
+<ul>
+    <li><a href="#">Hover me! </a></li>
+    <li><a href="#">Hover me! </a></li>
+    <li><a href="#">Hover me! </a></li>
+    <li><a href="#">Hover me! </a></li>
+</ul>
+
+</body>
+</html>

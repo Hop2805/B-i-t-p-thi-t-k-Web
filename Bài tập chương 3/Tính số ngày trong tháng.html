@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tính số ngày trong tháng</title>
+	<style>
+		/* Cài đặt chung */
+		body {
+			font-family: 'Arial', sans-serif;
+			background-color: #eaf2f8; /* Màu nền sáng mát mẻ */
+			color: #333;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			flex-direction: column;
+		}
+
+		/* Tiêu đề */
+		h2 {
+			color: #fff;
+			background-color: #007BFF; /* Màu xanh dương */
+			padding: 15px 30px;
+			border-radius: 5px;
+			text-align: center;
+			width: 100%;
+			max-width: 500px;
+		}
+
+		/* Ô input và button */
+		input[type="number"] {
+			width: 100%;
+			max-width: 250px;
+			padding: 12px;
+			margin: 15px 0;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			font-size: 16px;
+			box-sizing: border-box;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+		}
+
+		button {
+			width: 100%;
+			max-width: 250px;
+			padding: 12px;
+			font-size: 16px;
+			background-color: #007BFF; /* Màu xanh dương */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		button:hover {
+			background-color: #0056b3; /* Màu xanh dương đậm khi hover */
+		}
+
+		/* Hiển thị kết quả */
+		#result {
+			font-size: 18px;
+			color: #333;
+			margin-top: 20px;
+			font-weight: bold;
+		}
+
+	</style>
+</head>
+<body>
+	<h2>Tính số ngày trong tháng</h2>
+	<input type="number" id="month" placeholder="Nhập tháng (1-12)" min="1" max="12">
+	<button onclick="calculateDays()">Tính số ngày</button>
+	<p id="result"></p>
+
+	<script>
+		function calculateDays() {
+			const month = parseInt(document.getElementById("month").value);
+			const resultElement = document.getElementById("result");
+
+			let days;
+
+			switch (month) {
+				case 1:
+				case 3:
+				case 5:
+				case 7:
+				case 8:
+				case 10:
+				case 12:
+					days = 31;
+					break;
+				case 4:
+				case 6:
+				case 9:
+				case 11:
+					days = 30;
+					break;
+				case 2:
+					days = "28 hoặc 29"; // Năm nhuận có thể có 29 ngày
+					break;
+				default:
+					resultElement.innerText = "Vui lòng nhập tháng hợp lệ từ 1 đến 12.";
+					return;
+			}
+			resultElement.innerText = `Tháng ${month} có ${days} ngày.`;
+		}
+	</script>
+</body>
+</html>

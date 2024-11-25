@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tính Lãi Đơn Ngân Hàng</title>
+	<style>
+		/* Reset các giá trị mặc định */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		/* Cấu trúc chung của trang */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f0f0f0;
+			padding: 20px;
+		}
+
+		h1 {
+			text-align: center;
+			color: #2c6b2f; /* Xanh lá cây đậm */
+			margin-bottom: 20px;
+			font-size: 30px;
+		}
+
+		/* Form nhập liệu */
+		.container {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			width: 300px;
+			margin: 0 auto;
+			border-left: 5px solid #2c6b2f; /* Đường viền xanh lá cây đậm */
+		}
+
+		.container label {
+			display: block;
+			margin-bottom: 10px;
+			color: #2c6b2f; /* Màu chữ xanh lá cây đậm */
+			font-size: 16px;
+		}
+
+		.container input {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #2c6b2f; /* Đường viền xanh lá cây đậm */
+			border-radius: 5px;
+			font-size: 16px;
+		}
+
+		.container input:focus {
+			border-color: #388e3c; /* Màu xanh lá cây đậm khi focus */
+			outline: none;
+		}
+
+		.container button {
+			width: 100%;
+			padding: 10px;
+			background-color: #2c6b2f; /* Màu nền xanh lá cây đậm */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.container button:hover {
+			background-color: #388e3c; /* Màu nền xanh lá cây sáng hơn khi hover */
+		}
+
+		/* Kết quả tính toán */
+		.result {
+			text-align: center;
+			margin-top: 20px;
+			font-size: 18px;
+			color: #2c6b2f; /* Màu chữ xanh lá cây đậm */
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Tính Lãi Đơn Ngân Hàng</h1>
+
+	<!-- Phần nhập liệu -->
+	<div class="container">
+		<label for="soTienVay">Số tiền vay (P):</label>
+		<input type="number" id="soTienVay" placeholder="Nhập số tiền vay" required>
+		
+		<label for="laiSuat">Lãi suất hàng năm (r):</label>
+		<input type="number" id="laiSuat" placeholder="Nhập lãi suất (ví dụ: 0.01)" step="0.01" required>
+		
+		<label for="soNam">Số năm vay (t):</label>
+		<input type="number" id="soNam" placeholder="Nhập số năm vay" required>
+		
+		<button onclick="tinhLai()">Tính Lãi</button>
+	</div>
+
+	<!-- Phần hiển thị kết quả -->
+	<div class="result" id="result"></div>
+
+	<script>
+		// Hàm tính lãi đơn
+		function tinhLai() {
+			// Lấy giá trị từ form nhập liệu
+			const soTienVay = parseFloat(document.getElementById('soTienVay').value);
+			const laiSuat = parseFloat(document.getElementById('laiSuat').value);
+			const soNam = parseInt(document.getElementById('soNam').value);
+			
+			// Kiểm tra các giá trị nhập vào có hợp lệ hay không
+			if (isNaN(soTienVay) || isNaN(laiSuat) || isNaN(soNam) || soTienVay <= 0 || laiSuat <= 0 || soNam <= 0) {
+				alert("Vui lòng nhập đầy đủ thông tin hợp lệ!");
+				return;
+			}
+
+			// Tính số tiền phải trả sau khi tính lãi đơn
+			const soTienPhaiTra = soTienVay + (soTienVay * laiSuat * soNam);
+			
+			// Hiển thị kết quả tính toán lên giao diện
+			document.getElementById('result').innerHTML = `Số tiền bạn phải trả sau ${soNam} năm là: ${soTienPhaiTra.toFixed(2)} đồng.`;
+		}
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINH HỌA MENU NGANG CÓ CÁC MỤC CON</title>
+    <style>
+        /* Định dạng cho menu */
+        .menu_ngang {
+            width: 960px;
+            height: 50px;
+            background-color: #CCC;
+            margin: auto;
+        }
+
+        /* Định dạng cho danh sách trong menu */
+        .menu_ngang ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            float: left;
+        }
+
+        /* Định dạng cho các mục trong menu */
+        .menu_ngang ul li {
+            float: left;
+            position: relative;
+        }
+
+        /* Định dạng cho các liên kết trong menu */
+        .menu_ngang ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 0 20px;
+            line-height: 50px;
+            border-right: 1px solid #333;
+            display: block;
+        }
+
+        /* Định dạng cho menu con */
+        .menu_ngang ul li ul {
+            position: absolute;
+            background-color: #CCC;
+            display: none;
+            width: 110%;
+            top: 50px; /* Đảm bảo menu con xuất hiện bên dưới menu chính */
+            left: 0;
+        }
+
+        /* Định dạng cho các mục trong menu con */
+        .menu_ngang ul li ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px 20px;
+            border-right: none;
+            border-bottom: 1px solid #FFF;
+            line-height: 30px;
+            display: block;
+            text-align: left;
+            width: 100%;
+        }
+
+        /* Hiệu ứng khi hover trên các mục con */
+        .menu_ngang ul li ul li a:hover {
+            font-weight: bold;
+            background-color: #333;
+            color: #FFF;
+        }
+
+        /* Hiển thị menu con khi hover */
+        .menu_ngang ul li:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu ngang với các mục con -->
+    <div class="menu_ngang">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li>
+                <a href="#">Sản phẩm</a>
+                <ul>
+                    <li><a href="#">Tivi</a></li>
+                    <li><a href="#">Tủ lạnh</a></li>
+                    <li><a href="#">Laptop</a></li>
+                    <li><a href="#">Máy tính bảng</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Điện thoại</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

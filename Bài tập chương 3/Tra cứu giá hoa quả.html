@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Giá hoa quả</title>
+	<style>
+		/* Cài đặt chung */
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 20px;
+			background-color: #fce4ec; /* Màu nền hồng nhạt */
+			color: #333;
+		}
+
+		h2 {
+			color: #d81b60; /* Màu hồng đậm cho tiêu đề */
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		label, input, button {
+			font-size: 18px;
+			display: block;
+			width: 100%;
+			max-width: 300px;
+			margin: 10px auto;
+			padding: 10px;
+			border-radius: 5px;
+			text-align: center;
+		}
+
+		input {
+			border: 1px solid #e91e63; /* Viền hồng cho ô nhập liệu */
+			background-color: #ffffff;
+			color: #333;
+		}
+
+		button {
+			background-color: #d81b60; /* Nút bấm màu hồng đậm */
+			color: white;
+			border: none;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background-color: #c2185b; /* Đổi màu khi hover */
+		}
+
+		#priceResult {
+			font-size: 20px;
+			color: #d81b60; /* Màu kết quả hồng đậm */
+			text-align: center;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<h2>Giá hoa quả</h2>
+	<input type="text" id="fruitName" placeholder="Nhập tên hoa quả">
+	<button onclick="checkPrice()">Xem giá ngay</button>
+	<p id="priceResult"></p>
+
+	<script>
+		function checkPrice() {
+			const fruitName = document.getElementById("fruitName").value.trim();
+			const resultElement = document.getElementById("priceResult");
+			let price = null;
+
+			// Sử dụng switch case để kiểm tra giá của từng loại hoa quả
+			switch (fruitName) {
+				case "Ổi":
+					price = 20000;
+					break;
+				case "Dưa Hấu":
+					price = 20000;
+					break;
+				case "Táo":
+					price = 30000;
+					break;
+				case "Cam":
+					price = 40000;
+					break;
+				case "Chôm Chôm":
+					price = 40000;
+					break;
+				case "Măng Cụt":
+					price = 50000;
+					break;
+				default:
+					price = null;
+					break;
+			}
+
+			// Hiển thị kết quả
+			if (price) {
+				resultElement.innerText = price + " VNĐ/Kg";
+			} else {
+				resultElement.innerText = "Không có thông tin về giá của " + fruitName;
+			}
+		}
+	</script>
+
+</body>
+</html>

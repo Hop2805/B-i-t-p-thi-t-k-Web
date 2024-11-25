@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DOM Event Example</title>
+	<style>
+		/* Reset default styles */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		/* Body styling */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f4f4;
+			padding: 20px;
+		}
+
+		/* Heading */
+		h2 {
+			text-align: center;
+			color: #333;
+			font-size: 24px;
+			margin-bottom: 20px;
+		}
+
+		/* Hover */
+		#hoverDiv {
+			width: 200px;
+			height: 50px;
+			background-color: #009cdb;
+			color: #fff;
+			text-align: center;
+			line-height: 50px;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease, transform 0.3s ease;
+		}
+
+		#hoverDiv:hover {
+			background-color: #007bb5;
+			transform: scale(1.05);
+		}
+
+	
+		#image {
+			width: 150px;
+			height: 150px;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		#image:hover {
+			transform: scale(1.1);
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+		}
+
+		/* Màu nút*/
+		button {
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-top: 10px;
+			transition: background-color 0.3s ease;
+		}
+
+		button:hover {
+			background-color: #45a049;
+		}
+
+		/* Màu văn bản */
+		#textbox {
+			padding: 10px;
+			width: 200px;
+			margin-top: 10px;
+			border-radius: 5px;
+			border: 1px solid #ccc;
+			font-size: 16px;
+		}
+
+		#textboxResult {
+			margin-top: 10px;
+			font-size: 18px;
+			color: #333;
+		}
+
+		/*Màu thời gian */
+		#timeResult {
+			font-size: 18px;
+			color: #333;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+
+	<h2>Chuyển đổi nội dung và sự kiện với DOM</h2>
+
+	<!-- Hover effect div -->
+	<div id="hoverDiv">
+		Hover Me
+	</div>
+	<br><br>
+
+	<!-- Ảnh -->
+	<img id="image" src="https://via.placeholder.com/150" alt="Image">
+	<br><br>
+
+	<!-- Ấn để hiện thời gian -->
+	<button onclick="showCurrentTime()">Hiển thị thời gian hiện tại</button>
+	<p id="timeResult"></p>
+	<br><br>
+
+	<!-- Chuyển sang chữ in hoa -->
+	<input type="text" id="textbox" placeholder="Nhập văn bản ở đây">
+	<button onclick="convertToUpperCase()">Chuyển sang chữ IN HOA</button>
+	<p id="textboxResult"></p>
+
+	<script>
+		// Chuyển đổi nội dung khi di chuột qua
+		document.getElementById("hoverDiv").addEventListener("mouseover", function() {
+			this.innerText = "Mouse Event";
+		});
+		document.getElementById("hoverDiv").addEventListener("mouseout", function() {
+			this.innerText = "Hover Me";
+		});
+
+		// Thay đổi kích thước hình ảnh khi di chuột qua
+		document.getElementById("image").addEventListener("mouseover", function() {
+			this.style.width = "165px";
+			this.style.height = "165px";
+		});
+		document.getElementById("image").addEventListener("mouseout", function() {
+			this.style.width = "150px";
+			this.style.height = "150px";
+		});
+
+		// Hiển thị thời gian hiện tại
+		function showCurrentTime() {
+			const currentDate = new Date();
+			const timeString = currentDate.toLocaleString();
+			document.getElementById("timeResult").innerText = "Ngày và giờ hiện tại: " + timeString;
+		}
+
+		// Chuyển văn bản thành chữ in hoa
+		function convertToUpperCase() {
+			const textboxValue = document.getElementById("textbox").value;
+			document.getElementById("textboxResult").innerText = textboxValue.toUpperCase();
+		}
+	</script>
+
+</body>
+</html>

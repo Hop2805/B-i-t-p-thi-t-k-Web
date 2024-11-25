@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quản lý sản phẩm</title>
+	<style>
+		/* Cài đặt chung */
+		body {
+			font-family: 'Arial', sans-serif;
+			margin: 0;
+			padding: 0;
+			background-color: #f2f2f2; /* Màu nền sáng */
+			color: #333;
+		}
+
+		/* Tiêu đề */
+		h2 {
+			text-align: center;
+			color: #fff;
+			background-color: #1E3A8A; /* Xanh dương đậm */
+			padding: 15px 0;
+			margin-bottom: 30px;
+			border-radius: 8px;
+		}
+
+		/* Các input và button */
+		input[type="text"] {
+			width: 100%;
+			max-width: 350px;
+			padding: 12px;
+			margin: 10px auto;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			font-size: 16px;
+			box-sizing: border-box;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+
+		button {
+			width: 100%;
+			max-width: 350px;
+			padding: 12px;
+			margin: 10px auto;
+			background-color: #1E3A8A; /* Màu xanh dương đậm */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease-in-out;
+		}
+
+		button:hover {
+			background-color: #3b5b9a; /* Xanh dương sáng khi hover */
+			box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+		}
+
+		/* Danh sách sản phẩm */
+		h3 {
+			text-align: center;
+			color: #333;
+			font-size: 20px;
+		}
+
+		ul {
+			padding: 0;
+			list-style: none;
+			max-width: 600px;
+			margin: 0 auto;
+		}
+
+		li {
+			background-color: #fff;
+			padding: 15px;
+			margin: 10px 0;
+			border-radius: 5px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 16px;
+		}
+
+		button {
+			font-size: 14px;
+			padding: 5px 10px;
+			margin-left: 10px;
+		}
+
+		/* Hiệu ứng khi nhấn vào nút xóa */
+		button:hover {
+			background-color: #ff4757; /* Màu đỏ khi hover */
+		}
+	</style>
+</head>
+<body>
+
+	<h2>Quản lý sản phẩm</h2>
+
+	<input type="text" id="productName" placeholder="Nhập tên sản phẩm">
+	<button onclick="addProduct()">Thêm sản phẩm</button>
+
+	<h3>Danh sách sản phẩm:</h3>
+	<ul id="productList"></ul>
+
+	<script>
+		let products = [];
+
+		// Hàm hiển thị danh sách sản phẩm
+		function displayProducts() {
+			const productList = document.getElementById("productList");
+			productList.innerHTML = ""; // Làm trống danh sách cũ
+			products.forEach((product, index) => {
+				const li = document.createElement("li");
+				li.innerHTML = `
+					${product} 
+					<button onclick="editProduct(${index})">Sửa</button>
+					<button onclick="deleteProduct(${index})">Xóa</button>
+				`;
+				productList.appendChild(li);
+			});
+		}
+
+		// Hàm thêm sản phẩm vào danh sách
+		function addProduct() {
+			const productName = document.getElementById("productName").value.trim();
+			if (productName) {
+				products.push(productName);
+				document.getElementById("productName").value = "";
+				displayProducts();
+			} else {
+				alert("Vui lòng nhập tên sản phẩm!");
+			}
+		}
+
+		// Hàm sửa tên sản phẩm
+		function editProduct(index) {
+			const newProductName = prompt("Nhập tên sản phẩm mới:", products[index]);
+			if (newProductName !== null && newProductName.trim() !== "") {
+				products[index] = newProductName.trim();
+				displayProducts();
+			}
+		}
+
+		// Hàm xóa sản phẩm khỏi danh sách
+		function deleteProduct(index) {
+			if (confirm("Bạn có chắc muốn xóa sản phẩm này?")) {
+				products.splice(index, 1);
+				displayProducts();
+			}
+		}
+
+		// Hiển thị danh sách sản phẩm ban đầu
+		displayProducts();
+	</script>
+</body>
+</html>

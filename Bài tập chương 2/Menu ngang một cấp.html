@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MINH HỌA MENU NGANG MỘT CẤP</title>
+    <style>
+        /* Định dạng cho phần tử hl */
+        .hl {
+            text-align: center;
+            color: #F00;
+            font-family: Arial;
+        }
+
+        /* Định dạng cho menu */
+        .menu {
+            width: 1200px;
+            height: 50px;
+            margin: auto;
+            background-color: #CCC;
+        }
+
+        /* Định dạng cho danh sách trong menu */
+        .menu ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* Định dạng cho các mục trong menu */
+        .menu ul li {
+            float: left;
+        }
+
+        /* Định dạng cho liên kết trong các mục menu */
+        .menu ul li a {
+            text-decoration: none;
+            padding: 0 20px;
+            font-family: Arial;
+            color: #000;
+            font-size: 14px;
+            line-height: 50px;
+            display: block;
+        }
+
+        /* Định dạng khi hover trên các liên kết */
+        .menu ul li a:hover {
+            background-color: #333;
+            color: #FFF;
+            line-height: 48px;
+            border-bottom: 2px solid #F00;
+        }
+
+        /* Thêm kiểu cho phần tiêu đề */
+        h1 {
+            font-size: 30px;
+            color: #F00;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tiêu đề của trang -->
+    <h1 class="hl">MINH HỌA MENU NGANG MỘT CẤP</h1>
+
+    <!-- Menu điều hướng -->
+    <div class="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Dự án</a></li>
+            <li><a href="#">Sản phẩm</a></li>
+            <li><a href="#">Dịch vụ</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
+    </div>
+
+</body>
+</html>

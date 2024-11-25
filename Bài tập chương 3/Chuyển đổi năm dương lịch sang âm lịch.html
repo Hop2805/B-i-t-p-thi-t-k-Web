@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chuyển đổi năm Dương lịch sang năm Âm lịch</title>
+	<style>
+		/* Reset các giá trị mặc định */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		/* Cấu trúc chung của trang */
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f8f8f8;
+			padding: 20px;
+		}
+
+		h2 {
+			text-align: center;
+			color: #d32f2f; /* Màu đỏ chủ đạo */
+			margin-bottom: 20px;
+			font-size: 30px;
+		}
+
+		/* Form nhập liệu */
+		.container {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			width: 300px;
+			margin: 0 auto;
+			border-left: 5px solid #d32f2f; /* Đường viền đỏ chủ đạo */
+		}
+
+		.container label {
+			display: block;
+			margin-bottom: 10px;
+			color: #d32f2f; /* Màu chữ đỏ chủ đạo */
+			font-size: 16px;
+		}
+
+		.container input {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #d32f2f; /* Đường viền đỏ chủ đạo */
+			border-radius: 5px;
+			font-size: 16px;
+		}
+
+		.container input:focus {
+			border-color: #b71c1c; /* Màu đỏ tối khi focus */
+			outline: none;
+		}
+
+		.container button {
+			width: 100%;
+			padding: 10px;
+			background-color: #d32f2f; /* Màu nền đỏ chủ đạo */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.container button:hover {
+			background-color: #b71c1c; /* Màu nền đỏ tối khi hover */
+		}
+
+		/* Kết quả chuyển đổi */
+		.result {
+			text-align: center;
+			margin-top: 20px;
+			font-size: 18px;
+			color: #d32f2f; /* Màu chữ đỏ chủ đạo */
+		}
+	</style>
+</head>
+<body>
+
+	<h2>Chuyển đổi năm Dương lịch sang năm Âm lịch (Can Chi)</h2>
+
+	<!-- Phần nhập liệu -->
+	<div class="container">
+		<label for="nam_duong_lich">Nhập năm Dương lịch:</label>
+		<input type="number" id="nam_duong_lich" placeholder="Nhập năm Dương lịch" required>
+		
+		<button onclick="convertToCanChi()">Chuyển đổi</button>
+	</div>
+
+	<!-- Phần hiển thị kết quả -->
+	<div class="result" id="result"></div>
+
+	<script>
+		// Hàm chuyển đổi năm Dương lịch sang năm Âm lịch (Can Chi)
+		function convertToCanChi() {
+			// Lấy giá trị năm Dương lịch từ người dùng nhập vào
+			const nam_duong_lich = parseInt(document.getElementById("nam_duong_lich").value);
+			
+			// Kiểm tra tính hợp lệ của năm Dương lịch
+			if (isNaN(nam_duong_lich) || nam_duong_lich <= 0) {
+				document.getElementById("result").innerText = "Vui lòng nhập một năm hợp lệ!";
+				return;
+			}
+
+			// Tính chỉ số Can và Chi
+			const can = nam_duong_lich % 10;
+			const chi = nam_duong_lich % 12;
+
+			// Mảng chứa tên Can và Chi
+			const canList = ["Giáp", "Ất", "Bính", "Đinh", "Mậu", "Kỷ", "Canh", "Tân", "Nhâm", "Quý"];
+			const chiList = ["Tí", "Sửu", "Dần", "Mão", "Thìn", "Tỵ", "Ngọ", "Mùi", "Thân", "Dậu", "Tuất", "Hợi"];
+
+			// Tìm tên Can và Chi dựa vào chỉ số
+			const canName = canList[can];
+			const chiName = chiList[chi];
+
+			// Hiển thị kết quả
+			document.getElementById("result").innerText = `Năm Âm lịch là: ${canName} ${chiName}`;
+		}
+	</script>
+
+</body>
+</html>
